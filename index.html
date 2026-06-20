@@ -24,19 +24,19 @@
 html { scroll-behavior: smooth; }
 body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--ink); font-size: 15px; line-height: 1.6; }
 
-/* ── NAV ── */
 nav {
   position: sticky; top: 0; z-index: 100;
   background: var(--cream);
   border-bottom: 1px solid var(--rule);
   display: flex; align-items: center;
   padding: 0 1.5rem; height: 52px; gap: 8px;
+  overflow-x: auto;
 }
 .nav-brand { font-family: 'EB Garamond', serif; font-size: 17px; color: var(--ink); margin-right: auto; white-space: nowrap; }
 .nav-tabs { display: flex; gap: 0; }
 .nav-tab {
   font-size: 13px; color: var(--ink-muted);
-  text-decoration: none; padding: 0 14px;
+  text-decoration: none; padding: 0 12px;
   height: 52px; display: flex; align-items: center;
   border-bottom: 2px solid transparent;
   cursor: pointer; border-top: none; border-left: none; border-right: none;
@@ -46,7 +46,6 @@ nav {
 .nav-tab:hover { color: var(--ink); }
 .nav-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
 
-/* ── HERO ── */
 .hero {
   background: var(--parchment);
   border-bottom: 1px solid var(--rule);
@@ -60,12 +59,11 @@ nav {
 .hero-sub { font-size: 14px; color: var(--ink-muted); max-width: 480px; margin: 0 auto 1rem; }
 .hero-note { font-size: 13px; color: var(--ink-muted); max-width: 500px; margin: 0 auto 1.5rem; background: var(--gold-light); border-radius: var(--radius); padding: 9px 16px; border-left: 3px solid var(--gold); text-align: left; }
 .hero-note strong { color: var(--ink-soft); }
-.hero-stats { display: inline-flex; gap: 2rem; background: white; border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: 1rem 2rem; }
+.hero-stats { display: inline-flex; gap: 2rem; background: white; border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: 1rem 2rem; flex-wrap: wrap; justify-content: center; }
 .hero-stat { text-align: center; }
 .hero-stat-num { font-family: 'EB Garamond', serif; font-size: 2rem; font-weight: 500; color: var(--ink); line-height: 1; display: block; }
 .hero-stat-lbl { font-size: 11px; color: var(--ink-muted); margin-top: 3px; }
 
-/* ── PROGRESS BAR ── */
 .progress-banner {
   background: white; border-bottom: 1px solid var(--rule);
   padding: 0.85rem 1.5rem;
@@ -79,12 +77,26 @@ nav {
 .btn-reset { font-size: 12px; color: var(--ink-muted); background: none; border: 1px solid var(--rule); border-radius: var(--radius); padding: 5px 12px; cursor: pointer; display: flex; align-items: center; gap: 5px; }
 .btn-reset:hover { color: var(--ink); border-color: var(--ink-muted); }
 
-/* ── MAIN ── */
 main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
 .page { display: none; }
 .page.active { display: block; }
 
-/* ── TRACKER ── */
+/* INTRO SESSION CARD */
+.intro-banner {
+  background: linear-gradient(135deg, #f0e4c3, #fdf6e3);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: box-shadow 0.15s;
+}
+.intro-banner:hover { box-shadow: 0 2px 12px rgba(184,146,42,0.2); }
+.intro-banner-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+.intro-banner-title { font-family: 'EB Garamond', serif; font-size: 1.3rem; color: var(--ink); margin-bottom: 4px; }
+.intro-banner-desc { font-size: 13px; color: var(--ink-soft); }
+
+/* MES / GRUPO */
 .mes-section { margin-bottom: 2.5rem; }
 .mes-title { font-family: 'EB Garamond', serif; font-size: 1.25rem; color: var(--ink); border-bottom: 1px solid var(--rule); padding-bottom: 0.5rem; margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: baseline; }
 .mes-count { font-size: 13px; color: var(--ink-muted); font-family: 'Inter', sans-serif; }
@@ -97,9 +109,9 @@ main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
 .sesion-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px; }
 .sesion-num { font-size: 10px; color: var(--ink-muted); }
 .sesion-check { color: var(--gold); font-size: 13px; }
-.sesion-cita { font-size: 12px; font-weight: 500; color: var(--ink); }
+.sesion-cita { font-size: 11.5px; font-weight: 500; color: var(--ink); line-height: 1.3; }
 
-/* ── MÉTODOS ── */
+/* METODOS */
 .metodos-intro { font-size: 14px; color: var(--ink-muted); margin-bottom: 1.5rem; font-style: italic; }
 .metodo-card { border: 1px solid var(--rule); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 1rem; }
 .metodo-header { padding: 1rem 1.25rem; display: flex; align-items: flex-start; gap: 12px; cursor: pointer; background: white; transition: background 0.15s; }
@@ -117,7 +129,7 @@ main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
 .campo-nombre { font-size: 12px; font-weight: 500; color: var(--ink); }
 .campo-desc { font-size: 11px; color: var(--ink-muted); margin-top: 3px; line-height: 1.4; }
 
-/* ── PERÍODOS ── */
+/* PERIODOS */
 .periodos-intro { font-size: 14px; color: var(--ink-muted); margin-bottom: 1.5rem; font-style: italic; }
 .periodos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 2rem; }
 .periodo-card { border-radius: var(--radius-lg); padding: 1rem 1.1rem; border: 1px solid transparent; }
@@ -125,7 +137,7 @@ main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
 .periodo-name { font-family: 'EB Garamond', serif; font-size: 16px; line-height: 1.3; margin-bottom: 6px; }
 .periodo-desc { font-size: 12px; opacity: 0.75; line-height: 1.5; }
 
-/* ── GUÍA ── */
+/* GUIA */
 .guia-selector { background: white; border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
 .guia-selector label { font-size: 13px; color: var(--ink-muted); white-space: nowrap; }
 .guia-selector select { flex: 1; min-width: 180px; font-family: 'Inter', sans-serif; font-size: 14px; padding: 7px 10px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--cream); color: var(--ink); cursor: pointer; }
@@ -134,12 +146,11 @@ main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
 .guia-nav-btn { flex: 1; font-size: 13px; padding: 7px; border: 1px solid var(--rule); border-radius: var(--radius); background: none; color: var(--ink-soft); cursor: pointer; }
 .guia-nav-btn:hover { background: var(--parchment); }
 .guia-nav-btn.primary { background: var(--gold); border-color: var(--gold); color: white; }
-.guia-nav-btn.primary:hover { background: #a07a20; }
 .guia-nav-btn:disabled { opacity: 0.35; cursor: default; }
 
 .guia-header { border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; border: 1px solid transparent; }
 .guia-sesion-num { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; }
-.guia-cita { font-family: 'EB Garamond', serif; font-size: 1.6rem; font-weight: 400; }
+.guia-cita { font-family: 'EB Garamond', serif; font-size: 1.4rem; font-weight: 400; line-height: 1.3; }
 .guia-periodo-name { font-size: 13px; opacity: 0.8; margin-top: 4px; }
 .metodo-tag { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; }
 
@@ -172,23 +183,31 @@ main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
 .campo-mini-nombre { font-size: 11px; font-weight: 500; color: var(--ink); }
 .campo-mini-desc { font-size: 11px; color: var(--ink-muted); margin-top: 2px; }
 
-/* ── TIMER ── */
-.timer-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--cream); border-top: 1px solid var(--rule); padding: 9px 1.5rem; display: flex; align-items: center; gap: 12px; z-index: 90; }
-.timer-bar.hidden { display: none; }
-.timer-display { font-family: 'EB Garamond', serif; font-size: 1.35rem; color: var(--ink); min-width: 55px; }
-.timer-display.running { color: var(--gold); }
-.timer-label { font-size: 12px; color: var(--ink-muted); flex: 1; }
-.timer-btn-sm { font-size: 12px; padding: 5px 12px; border: 1px solid var(--rule); border-radius: var(--radius); background: none; color: var(--ink-soft); cursor: pointer; }
-.timer-btn-sm:hover { background: var(--parchment); }
+/* INTRODUCCION PAGE */
+.intro-block h3 { font-family: 'EB Garamond', serif; font-size: 1.15rem; color: var(--ink); margin-top: 1.75rem; margin-bottom: 0.6rem; }
+.intro-block h3:first-child { margin-top: 0; }
+.intro-block p { font-size: 14px; color: var(--ink-soft); line-height: 1.75; margin-bottom: 0.5rem; }
+.intro-block strong { color: var(--ink); font-weight: 500; }
+.intro-block em { font-style: italic; }
+.intro-block ul { margin: 0.5rem 0 0.5rem 1.25rem; }
+.intro-block li { font-size: 14px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 4px; }
+
+/* REFERENCIA / LIBROS */
+.referencia-intro { font-size: 14px; color: var(--ink-muted); margin-bottom: 1.5rem; font-style: italic; }
+.libro-card { background: white; border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: 1.1rem 1.3rem; margin-bottom: 0.85rem; }
+.libro-card-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+.libro-nombre { font-family: 'EB Garamond', serif; font-size: 1.2rem; color: var(--ink); }
+.libro-genero { font-size: 10.5px; font-weight: 500; padding: 2px 9px; border-radius: 20px; background: var(--parchment); color: var(--ink-muted); white-space: nowrap; }
+.libro-periodo { font-size: 12px; color: var(--gold); margin-bottom: 8px; font-weight: 500; }
+.libro-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.65; }
 
 @media (max-width: 600px) {
-  .hero-stats { flex-direction: column; gap: 1rem; padding: 1rem 1.5rem; }
+  .hero-stats { gap: 1rem; padding: 1rem 1.25rem; }
   .periodos-grid { grid-template-columns: 1fr 1fr; }
   .campos-grid, .campos-mini { grid-template-columns: 1fr; }
   .campo.full, .campo-mini.full { grid-column: 1; }
   .sesiones-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
-  .nav-tabs { overflow-x: auto; }
-  .nav-tab { font-size: 12px; padding: 0 10px; }
+  .nav-tab { font-size: 12px; padding: 0 9px; }
 }
 </style>
 </head>
@@ -198,8 +217,10 @@ main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
   <span class="nav-brand">Cronología de la Biblia</span>
   <div class="nav-tabs">
     <button class="nav-tab active" onclick="showPage('tracker',this)">Plan de lectura</button>
+    <button class="nav-tab" onclick="showPage('introduccion',this)">Introducción</button>
     <button class="nav-tab" onclick="showPage('metodos',this)">5 métodos</button>
-    <button class="nav-tab" onclick="showPage('periodos',this)">12 períodos</button>
+    <button class="nav-tab" onclick="showPage('periodos',this)">12+ períodos</button>
+    <button class="nav-tab" onclick="showPage('referencia',this)">Los libros</button>
     <button class="nav-tab" onclick="showPage('guia',this)">Guía del encuentro</button>
   </div>
 </nav>
@@ -207,11 +228,12 @@ main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
 <div class="hero">
   <p class="hero-eyebrow">Biblia Católica · The Great Adventure · Jeff Cavins</p>
   <h1 class="hero-title">La historia de la salvación,<br><em>de principio a fin</em></h1>
-  <p class="hero-sub">14 libros narrativos · 90 sesiones · Plan semanal para círculo bíblico</p>
+  <p class="hero-sub">18 libros narrativos · 100 sesiones · Plan semanal para círculo bíblico</p>
   <p class="hero-note"><strong>¿No tienes la Biblia The Great Adventure?</strong> No hace falta. Las citas funcionan con cualquier Biblia católica: Biblia de Jerusalén, Biblia Latinoamericana, Nácar-Colunga, la que tengas en casa.</p>
   <div class="hero-stats">
-    <div class="hero-stat"><span class="hero-stat-num">14</span><span class="hero-stat-lbl">libros narrativos</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">90</span><span class="hero-stat-lbl">sesiones</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">18</span><span class="hero-stat-lbl">libros narrativos</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">100</span><span class="hero-stat-lbl">sesiones</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">4</span><span class="hero-stat-lbl">evangelios armonizados</span></div>
     <div class="hero-stat"><span class="hero-stat-num">5</span><span class="hero-stat-lbl">métodos de estudio</span></div>
   </div>
 </div>
@@ -219,7 +241,7 @@ main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
 <div class="progress-banner">
   <div class="pn"><div class="pn-num" id="pn-done">0</div><div class="pn-lbl">completadas</div></div>
   <div class="pn"><div class="pn-num" id="pn-pct">0%</div><div class="pn-lbl">del plan</div></div>
-  <div class="pn"><div class="pn-num" id="pn-left">90</div><div class="pn-lbl">restantes</div></div>
+  <div class="pn"><div class="pn-num" id="pn-left">100</div><div class="pn-lbl">restantes</div></div>
   <div class="progress-track"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
   <button class="btn-reset" onclick="resetAll()">↺ Reiniciar</button>
 </div>
@@ -228,10 +250,21 @@ main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
 
 <!-- TRACKER -->
 <div class="page active" id="page-tracker">
+  <div class="intro-banner" onclick="showPage('introduccion', document.querySelectorAll('.nav-tab')[1])">
+    <div class="intro-banner-eyebrow">Antes de empezar · Sesión introductoria</div>
+    <div class="intro-banner-title">¿Cómo está conformada la Biblia?</div>
+    <div class="intro-banner-desc">El canon, los concilios, los géneros literarios y la doble autoría de la Escritura. Recomendado para el primer encuentro del grupo, antes de la sesión 1. Toca para ver el contenido completo →</div>
+  </div>
   <div id="tracker-content"></div>
 </div>
 
-<!-- MÉTODOS -->
+<!-- INTRODUCCION -->
+<div class="page" id="page-introduccion">
+  <p class="metodos-intro">Sugerencia del sacerdote acompañante: dedicar el primer encuentro del grupo a esta introducción antes de comenzar el plan de lectura.</p>
+  <div id="intro-content-container"></div>
+</div>
+
+<!-- METODOS -->
 <div class="page" id="page-metodos">
   <p class="metodos-intro">Elige tu método según el tipo de lectura del día. Puedes rotar entre ellos a lo largo del plan.</p>
   <div class="metodo-card">
@@ -269,7 +302,7 @@ main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
   <div class="metodo-card">
     <div class="metodo-header" onclick="toggleMetodo(this)">
       <div class="metodo-num" style="background:#eeedfe;color:#534ab7;">3</div>
-      <div class="metodo-info"><div class="metodo-titulo">Estudio de personaje bíblico</div><div class="metodo-cuando">Cuando el texto presenta un personaje clave: Moisés, David, Débora, Josué...</div></div>
+      <div class="metodo-info"><div class="metodo-titulo">Estudio de personaje bíblico</div><div class="metodo-cuando">Cuando el texto presenta un personaje clave: Moisés, David, Débora, Job...</div></div>
       <span class="metodo-toggle">›</span>
     </div>
     <div class="metodo-body">
@@ -286,7 +319,7 @@ main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
   <div class="metodo-card">
     <div class="metodo-header" onclick="toggleMetodo(this)">
       <div class="metodo-num" style="background:#faece7;color:#993c1d;">4</div>
-      <div class="metodo-info"><div class="metodo-titulo">Estudio temático</div><div class="metodo-cuando">Cuando el texto toca un tema que quieres explorar: misericordia, alianza, templo...</div></div>
+      <div class="metodo-info"><div class="metodo-titulo">Estudio temático</div><div class="metodo-cuando">Cuando el texto toca un tema que quieres explorar: misericordia, alianza, sufrimiento...</div></div>
       <span class="metodo-toggle">›</span>
     </div>
     <div class="metodo-body">
@@ -301,7 +334,7 @@ main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
   <div class="metodo-card">
     <div class="metodo-header" onclick="toggleMetodo(this)">
       <div class="metodo-num" style="background:#fbeaf0;color:#993556;">5</div>
-      <div class="metodo-info"><div class="metodo-titulo">Estudio de escena evangélica</div><div class="metodo-cuando">Solo para los Evangelios. Reservado para Lucas (sesiones 78–83) y Hechos.</div></div>
+      <div class="metodo-info"><div class="metodo-titulo">Estudio de escena evangélica</div><div class="metodo-cuando">Para los Evangelios armonizados (sesiones 82–93) y Hechos.</div></div>
       <span class="metodo-toggle">›</span>
     </div>
     <div class="metodo-body">
@@ -319,13 +352,19 @@ main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
   </div>
 </div>
 
-<!-- PERÍODOS -->
+<!-- PERIODOS -->
 <div class="page" id="page-periodos">
-  <p class="periodos-intro">La Cronología divide la historia de la salvación en 12 períodos. Cada uno tiene un color que te ayuda a ubicarte en la historia grande.</p>
+  <p class="periodos-intro">La historia de la salvación dividida en períodos. Cada uno tiene un color que te ayuda a ubicarte en la historia grande. Se agregó el período de Job, situado en la época patriarcal.</p>
   <div class="periodos-grid" id="periodos-grid"></div>
 </div>
 
-<!-- GUÍA -->
+<!-- REFERENCIA -->
+<div class="page" id="page-referencia">
+  <p class="referencia-intro">Introducción a cada libro narrativo del plan: contexto, género literario y de qué trata. Útil para repasar antes de cada período nuevo.</p>
+  <div id="referencia-grid"></div>
+</div>
+
+<!-- GUIA -->
 <div class="page" id="page-guia">
   <div class="guia-selector">
     <label>Sesión de hoy:</label>
@@ -343,111 +382,112 @@ main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
 
 </main>
 
-<!-- Timer (solo en guía) -->
-<div class="timer-bar hidden" id="timer-bar">
-  <div class="timer-display" id="timer-display">0:00</div>
-  <div class="timer-label">Tiempo del encuentro · óptimo 60–75 min</div>
-  <button class="timer-btn-sm" id="timer-btn" onclick="toggleTimer()">Iniciar</button>
-  <button class="timer-btn-sm" onclick="resetTimer()">↺</button>
+<div class="timer-bar hidden" id="timer-bar" style="position:fixed;bottom:0;left:0;right:0;background:var(--cream);border-top:1px solid var(--rule);padding:9px 1.5rem;display:flex;align-items:center;gap:12px;z-index:90;">
+  <div class="timer-display" id="timer-display" style="font-family:'EB Garamond',serif;font-size:1.35rem;color:var(--ink);min-width:55px;">0:00</div>
+  <div style="font-size:12px;color:var(--ink-muted);flex:1;">Tiempo del encuentro · óptimo 60–75 min</div>
+  <button class="timer-btn-sm" id="timer-btn" onclick="toggleTimer()" style="font-size:12px;padding:5px 12px;border:1px solid var(--rule);border-radius:var(--radius);background:none;color:var(--ink-soft);cursor:pointer;">Iniciar</button>
+  <button class="timer-btn-sm" onclick="resetTimer()" style="font-size:12px;padding:5px 12px;border:1px solid var(--rule);border-radius:var(--radius);background:none;color:var(--ink-soft);cursor:pointer;">↺</button>
 </div>
 
 <script>
-const SESIONES = [
-  {n:1,c:"Gn 1-4",p:"El mundo de los orígenes",cl:"#1D9E75",bg:"#E1F5EE"},
-  {n:2,c:"Gn 5-8",p:"El mundo de los orígenes",cl:"#1D9E75",bg:"#E1F5EE"},
-  {n:3,c:"Gn 9-11",p:"El mundo de los orígenes",cl:"#1D9E75",bg:"#E1F5EE"},
-  {n:4,c:"Gn 12-16",p:"Los patriarcas",cl:"#8a6010",bg:"#f0e4c3"},
-  {n:5,c:"Gn 17-20",p:"Los patriarcas",cl:"#8a6010",bg:"#f0e4c3"},
-  {n:6,c:"Gn 21-24",p:"Los patriarcas",cl:"#8a6010",bg:"#f0e4c3"},
-  {n:7,c:"Gn 25-28",p:"Los patriarcas",cl:"#8a6010",bg:"#f0e4c3"},
-  {n:8,c:"Gn 29-32",p:"Los patriarcas",cl:"#8a6010",bg:"#f0e4c3"},
-  {n:9,c:"Gn 33-36",p:"Los patriarcas",cl:"#8a6010",bg:"#f0e4c3"},
-  {n:10,c:"Gn 37-40",p:"Los patriarcas",cl:"#8a6010",bg:"#f0e4c3"},
-  {n:11,c:"Gn 41-45",p:"Los patriarcas",cl:"#8a6010",bg:"#f0e4c3"},
-  {n:12,c:"Gn 46-50",p:"Los patriarcas",cl:"#8a6010",bg:"#f0e4c3"},
-  {n:13,c:"Éx 1-4",p:"Egipto y Éxodo",cl:"#A32D2D",bg:"#FCEBEB"},
-  {n:14,c:"Éx 5-8",p:"Egipto y Éxodo",cl:"#A32D2D",bg:"#FCEBEB"},
-  {n:15,c:"Éx 9-12",p:"Egipto y Éxodo",cl:"#A32D2D",bg:"#FCEBEB"},
-  {n:16,c:"Éx 13-16",p:"Egipto y Éxodo",cl:"#A32D2D",bg:"#FCEBEB"},
-  {n:17,c:"Éx 17-20",p:"Egipto y Éxodo",cl:"#A32D2D",bg:"#FCEBEB"},
-  {n:18,c:"Éx 21-24",p:"Egipto y Éxodo",cl:"#A32D2D",bg:"#FCEBEB"},
-  {n:19,c:"Éx 25-28",p:"Egipto y Éxodo",cl:"#A32D2D",bg:"#FCEBEB"},
-  {n:20,c:"Éx 29-32",p:"Egipto y Éxodo",cl:"#A32D2D",bg:"#FCEBEB"},
-  {n:21,c:"Éx 33-36",p:"Egipto y Éxodo",cl:"#A32D2D",bg:"#FCEBEB"},
-  {n:22,c:"Éx 37-40",p:"Egipto y Éxodo",cl:"#A32D2D",bg:"#FCEBEB"},
-  {n:23,c:"Nm 1-4",p:"La peregrinación por el desierto",cl:"#BA7517",bg:"#FAEEDA"},
-  {n:24,c:"Nm 5-8",p:"La peregrinación por el desierto",cl:"#BA7517",bg:"#FAEEDA"},
-  {n:25,c:"Nm 9-12",p:"La peregrinación por el desierto",cl:"#BA7517",bg:"#FAEEDA"},
-  {n:26,c:"Nm 13-16",p:"La peregrinación por el desierto",cl:"#BA7517",bg:"#FAEEDA"},
-  {n:27,c:"Nm 17-20",p:"La peregrinación por el desierto",cl:"#BA7517",bg:"#FAEEDA"},
-  {n:28,c:"Nm 21-24",p:"La peregrinación por el desierto",cl:"#BA7517",bg:"#FAEEDA"},
-  {n:29,c:"Nm 25-28",p:"La peregrinación por el desierto",cl:"#BA7517",bg:"#FAEEDA"},
-  {n:30,c:"Nm 29-32",p:"La peregrinación por el desierto",cl:"#BA7517",bg:"#FAEEDA"},
-  {n:31,c:"Nm 33-36",p:"La peregrinación por el desierto",cl:"#BA7517",bg:"#FAEEDA"},
-  {n:32,c:"Jos 1-4",p:"La conquista y los jueces",cl:"#3B6D11",bg:"#EAF3DE"},
-  {n:33,c:"Jos 5-8",p:"La conquista y los jueces",cl:"#3B6D11",bg:"#EAF3DE"},
-  {n:34,c:"Jos 9-12",p:"La conquista y los jueces",cl:"#3B6D11",bg:"#EAF3DE"},
-  {n:35,c:"Jos 13-16",p:"La conquista y los jueces",cl:"#3B6D11",bg:"#EAF3DE"},
-  {n:36,c:"Jos 17-20",p:"La conquista y los jueces",cl:"#3B6D11",bg:"#EAF3DE"},
-  {n:37,c:"Jos 21-24",p:"La conquista y los jueces",cl:"#3B6D11",bg:"#EAF3DE"},
-  {n:38,c:"Jue 1-4",p:"La conquista y los jueces",cl:"#3B6D11",bg:"#EAF3DE"},
-  {n:39,c:"Jue 5-8",p:"La conquista y los jueces",cl:"#3B6D11",bg:"#EAF3DE"},
-  {n:40,c:"Jue 9-12",p:"La conquista y los jueces",cl:"#3B6D11",bg:"#EAF3DE"},
-  {n:41,c:"Jue 13-16",p:"La conquista y los jueces",cl:"#3B6D11",bg:"#EAF3DE"},
-  {n:42,c:"Jue 17-21",p:"La conquista y los jueces",cl:"#3B6D11",bg:"#EAF3DE"},
-  {n:43,c:"1Sam 1-4",p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE"},
-  {n:44,c:"1Sam 5-8",p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE"},
-  {n:45,c:"1Sam 9-12",p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE"},
-  {n:46,c:"1Sam 13-16",p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE"},
-  {n:47,c:"1Sam 17-20",p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE"},
-  {n:48,c:"1Sam 21-24",p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE"},
-  {n:49,c:"1Sam 25-28",p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE"},
-  {n:50,c:"1Sam 29-31",p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE"},
-  {n:51,c:"2Sam 1-4",p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE"},
-  {n:52,c:"2Sam 5-8",p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE"},
-  {n:53,c:"2Sam 9-12",p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE"},
-  {n:54,c:"2Sam 13-16",p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE"},
-  {n:55,c:"2Sam 17-20",p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE"},
-  {n:56,c:"2Sam 21-24",p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE"},
-  {n:57,c:"1Re 1-4",p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE"},
-  {n:58,c:"1Re 5-8",p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE"},
-  {n:59,c:"1Re 9-11",p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE"},
-  {n:60,c:"1Re 12-15",p:"El reino dividido",cl:"#185FA5",bg:"#E6F1FB"},
-  {n:61,c:"1Re 16-19",p:"El reino dividido",cl:"#185FA5",bg:"#E6F1FB"},
-  {n:62,c:"1Re 20-22",p:"El reino dividido",cl:"#185FA5",bg:"#E6F1FB"},
-  {n:63,c:"2Re 1-4",p:"El reino dividido",cl:"#185FA5",bg:"#E6F1FB"},
-  {n:64,c:"2Re 5-8",p:"El reino dividido",cl:"#185FA5",bg:"#E6F1FB"},
-  {n:65,c:"2Re 9-12",p:"El reino dividido",cl:"#185FA5",bg:"#E6F1FB"},
-  {n:66,c:"2Re 13-17",p:"El reino dividido",cl:"#185FA5",bg:"#E6F1FB"},
-  {n:67,c:"2Re 18-20",p:"El exilio",cl:"#3a3830",bg:"#eceae4"},
-  {n:68,c:"2Re 21-25",p:"El exilio",cl:"#3a3830",bg:"#eceae4"},
-  {n:69,c:"Esd 1-5",p:"El retorno",cl:"#996b0a",bg:"#fef3d6"},
-  {n:70,c:"Esd 6-10",p:"El retorno",cl:"#996b0a",bg:"#fef3d6"},
-  {n:71,c:"Neh 1-4",p:"El retorno",cl:"#996b0a",bg:"#fef3d6"},
-  {n:72,c:"Neh 5-8",p:"El retorno",cl:"#996b0a",bg:"#fef3d6"},
-  {n:73,c:"Neh 9-13",p:"El retorno",cl:"#996b0a",bg:"#fef3d6"},
-  {n:74,c:"1Mac 1-4",p:"La revuelta macabea",cl:"#993C1D",bg:"#FAECE7"},
-  {n:75,c:"1Mac 5-8",p:"La revuelta macabea",cl:"#993C1D",bg:"#FAECE7"},
-  {n:76,c:"1Mac 9-12",p:"La revuelta macabea",cl:"#993C1D",bg:"#FAECE7"},
-  {n:77,c:"1Mac 13-16",p:"La revuelta macabea",cl:"#993C1D",bg:"#FAECE7"},
-  {n:78,c:"Lc 1-4",p:"El cumplimiento mesiánico",cl:"#8a6010",bg:"#fdf6e3"},
-  {n:79,c:"Lc 5-8",p:"El cumplimiento mesiánico",cl:"#8a6010",bg:"#fdf6e3"},
-  {n:80,c:"Lc 9-12",p:"El cumplimiento mesiánico",cl:"#8a6010",bg:"#fdf6e3"},
-  {n:81,c:"Lc 13-16",p:"El cumplimiento mesiánico",cl:"#8a6010",bg:"#fdf6e3"},
-  {n:82,c:"Lc 17-20",p:"El cumplimiento mesiánico",cl:"#8a6010",bg:"#fdf6e3"},
-  {n:83,c:"Lc 21-24",p:"El cumplimiento mesiánico",cl:"#8a6010",bg:"#fdf6e3"},
-  {n:84,c:"Hch 1-4",p:"La Iglesia",cl:"#0F6E56",bg:"#E1F5EE"},
-  {n:85,c:"Hch 5-8",p:"La Iglesia",cl:"#0F6E56",bg:"#E1F5EE"},
-  {n:86,c:"Hch 9-12",p:"La Iglesia",cl:"#0F6E56",bg:"#E1F5EE"},
-  {n:87,c:"Hch 13-16",p:"La Iglesia",cl:"#0F6E56",bg:"#E1F5EE"},
-  {n:88,c:"Hch 17-20",p:"La Iglesia",cl:"#0F6E56",bg:"#E1F5EE"},
-  {n:89,c:"Hch 21-24",p:"La Iglesia",cl:"#0F6E56",bg:"#E1F5EE"},
-  {n:90,c:"Hch 25-28",p:"La Iglesia",cl:"#0F6E56",bg:"#E1F5EE"},
-];
+// ===== DATOS: 100 SESIONES =====
+const SESIONES = [];
+let _n = 1;
+function addS(citas, periodo, cl, bg) {
+  SESIONES.push({n:_n, c:citas, p:periodo, cl:cl, bg:bg});
+  _n++;
+}
 
+// El mundo de los orígenes
+['Gn 1-4','Gn 5-8','Gn 9-11'].forEach(c=>addS(c,'El mundo de los orígenes','#1D9E75','#E1F5EE'));
+// Los patriarcas
+['Gn 12-16','Gn 17-20','Gn 21-24','Gn 25-28','Gn 29-32','Gn 33-36','Gn 37-40','Gn 41-45','Gn 46-50']
+  .forEach(c=>addS(c,'Los patriarcas','#8a6010','#f0e4c3'));
+// Job
+['Job 1-11','Job 12-21','Job 22-31','Job 32-42']
+  .forEach(c=>addS(c,'Job: el misterio del sufrimiento','#6B4226','#F0E6DC'));
+// Egipto y Éxodo
+['Éx 1-4','Éx 5-8','Éx 9-12','Éx 13-16','Éx 17-20','Éx 21-24','Éx 25-28','Éx 29-32','Éx 33-36','Éx 37-40']
+  .forEach(c=>addS(c,'Egipto y Éxodo','#A32D2D','#FCEBEB'));
+// Peregrinación
+['Nm 1-4','Nm 5-8','Nm 9-12','Nm 13-16','Nm 17-20','Nm 21-24','Nm 25-28','Nm 29-32','Nm 33-36']
+  .forEach(c=>addS(c,'La peregrinación por el desierto','#BA7517','#FAEEDA'));
+// Conquista y jueces
+['Jos 1-4','Jos 5-8','Jos 9-12','Jos 13-16','Jos 17-20','Jos 21-24','Jue 1-4','Jue 5-8','Jue 9-12','Jue 13-16','Jue 17-21']
+  .forEach(c=>addS(c,'La conquista y los jueces','#3B6D11','#EAF3DE'));
+// Monarquía unida
+['1Sam 1-4','1Sam 5-8','1Sam 9-12','1Sam 13-16','1Sam 17-20','1Sam 21-24','1Sam 25-28','1Sam 29-31',
+ '2Sam 1-4','2Sam 5-8','2Sam 9-12','2Sam 13-16','2Sam 17-20','2Sam 21-24','1Re 1-4','1Re 5-8','1Re 9-11']
+  .forEach(c=>addS(c,'La monarquía unida','#534AB7','#EEEDFE'));
+// Reino dividido
+['1Re 12-15','1Re 16-19','1Re 20-22','2Re 1-4','2Re 5-8','2Re 9-12','2Re 13-17']
+  .forEach(c=>addS(c,'El reino dividido','#185FA5','#E6F1FB'));
+// Exilio
+['2Re 18-20','2Re 21-25'].forEach(c=>addS(c,'El exilio','#3a3830','#eceae4'));
+// Retorno
+['Esd 1-5','Esd 6-10','Neh 1-4','Neh 5-8','Neh 9-13'].forEach(c=>addS(c,'El retorno','#996b0a','#fef3d6'));
+// Revuelta macabea
+['1Mac 1-4','1Mac 5-8','1Mac 9-12','1Mac 13-16'].forEach(c=>addS(c,'La revuelta macabea','#993C1D','#FAECE7'));
+// Evangelios armonizados (12 sesiones)
+[
+  'Mt 1-2; Lc 1-2',
+  'Mc 1; Jn 1; Lc 3-4; Mt 3-4',
+  'Jn 2-4; Mt 5-7',
+  'Mt 8-9; Mc 2-3; Lc 7',
+  'Mt 13; Mc 4; Lc 8',
+  'Mt 14; Mc 6; Jn 6',
+  'Mt 16-17; Mc 8-9; Lc 9',
+  'Lc 10-15; Jn 7-9',
+  'Jn 11; Lc 18-19; Mt 21',
+  'Mt 24-25; Mc 13; Lc 21',
+  'Mt 26-27; Mc 14-15; Lc 22-23; Jn 18-19',
+  'Mt 28; Mc 16; Lc 24; Jn 20-21'
+].forEach(c=>addS(c,'El cumplimiento mesiánico','#8a6010','#fdf6e3'));
+// Hechos
+['Hch 1-4','Hch 5-8','Hch 9-12','Hch 13-16','Hch 17-20','Hch 21-24','Hch 25-28']
+  .forEach(c=>addS(c,'La Iglesia','#0F6E56','#E1F5EE'));
+
+const TOTAL_SESIONES = SESIONES.length; // 100
+
+// Sub-títulos para sesiones de evangelios armonizados (sesiones 82-93)
+const EVANGELIO_SUBTITULOS = {
+  82:"Infancia y nacimiento",
+  83:"Preparación: Juan Bautista, bautismo y tentaciones",
+  84:"Inicio del ministerio público y el Sermón del Monte",
+  85:"Primeros milagros y llamado de los discípulos",
+  86:"Las parábolas del Reino",
+  87:"Multiplicación de los panes y caminar sobre el agua",
+  88:"La confesión de Pedro y la Transfiguración",
+  89:"Camino a Jerusalén: parábolas de la misericordia",
+  90:"La resurrección de Lázaro y la entrada a Jerusalén",
+  91:"Discursos finales y signos del fin",
+  92:"La Pasión: la última cena, el juicio y la cruz",
+  93:"La Resurrección y las apariciones de Jesús",
+};
+
+// Agrupación por mes (aprox 8-9 sesiones por mes a ritmo semanal)
+function getMes(n) {
+  return Math.ceil(n / 9); // ~9 sesiones por "mes" de referencia visual, ajustable
+}
+
+// Agrupar sesiones consecutivas por período para el tracker
+const GRUPOS_TRACKER = [];
+{
+  let cur = null;
+  SESIONES.forEach(s => {
+    if (!cur || cur.p !== s.p) {
+      cur = {p:s.p, cl:s.cl, bg:s.bg, ns:[]};
+      GRUPOS_TRACKER.push(cur);
+    }
+    cur.ns.push(s.n);
+  });
+}
+
+// ===== PERÍODOS (para la pestaña "12+ períodos") =====
 const PERIODOS_DATA = [
   {n:1,nombre:"El mundo de los orígenes",cl:"#1D9E75",bg:"#E1F5EE",desc:"La creación, la caída y los primeros pasos de la humanidad. Génesis 1–11."},
   {n:2,nombre:"Los patriarcas",cl:"#8a6010",bg:"#f0e4c3",desc:"La alianza de sangre de Dios con Abrahán y sus descendientes. Génesis 12–50."},
+  {n:"2b",nombre:"Job: el misterio del sufrimiento",cl:"#6B4226",bg:"#F0E6DC",desc:"Situado en la época patriarcal. Un hombre justo que sufre, y el encuentro con Dios en medio del dolor sin respuesta fácil."},
   {n:3,nombre:"Egipto y Éxodo",cl:"#A32D2D",bg:"#FCEBEB",desc:"La esclavitud en Egipto y la liberación a través del mar Rojo. Éxodo."},
   {n:4,nombre:"La peregrinación por el desierto",cl:"#BA7517",bg:"#FAEEDA",desc:"Cuarenta años en el desierto: pruebas, alianza y preparación. Números."},
   {n:5,nombre:"La conquista y los jueces",cl:"#3B6D11",bg:"#EAF3DE",desc:"La entrada a Canaán y el período de los jueces. Josué, Jueces."},
@@ -456,10 +496,11 @@ const PERIODOS_DATA = [
   {n:8,nombre:"El exilio",cl:"#3a3830",bg:"#eceae4",desc:"Judá cantando lamentaciones en Babilonia. 2 Reyes 18–25."},
   {n:9,nombre:"El retorno",cl:"#996b0a",bg:"#fef3d6",desc:"Judá volviendo a casa para días más luminosos. Esdras, Nehemías."},
   {n:10,nombre:"La revuelta macabea",cl:"#993C1D",bg:"#FAECE7",desc:"La llama de las lámparas de aceite en el Templo purificado. 1 Macabeos."},
-  {n:11,nombre:"El cumplimiento mesiánico",cl:"#8a6010",bg:"#fdf6e3",desc:"Los regalos de los Reyes Magos: Jesús cumple toda la historia. Lucas."},
+  {n:11,nombre:"El cumplimiento mesiánico",cl:"#8a6010",bg:"#fdf6e3",desc:"Los 4 evangelios armonizados: la vida de Jesús cruzando Mateo, Marcos, Lucas y Juan en una sola cronología."},
   {n:12,nombre:"La Iglesia",cl:"#0F6E56",bg:"#E1F5EE",desc:"La Esposa inmaculada de Cristo en marcha por el mundo. Hechos."},
 ];
 
+// ===== MÉTODOS =====
 const METODOS_DATA = {
   1:{nombre:"Estudio básico",cl:"#8a6010",bg:"#f0e4c3",campos:[{n:"Comentarios",d:"Con tus propias palabras: ¿de qué trata el texto?",f:true},{n:"Novedad",d:"¿Qué te enseña nuevo este pasaje?"},{n:"Promesa o verdad",d:"¿Qué te dice Dios a través de este texto?"},{n:"Aplicación cotidiana",d:"Tarea concreta para esta semana"},{n:"Guardar en el corazón",d:"Versículo para seguir meditando"}]},
   2:{nombre:"Estudio de palabra clave",cl:"#0F6E56",bg:"#E1F5EE",campos:[{n:"Palabra elegida",d:"La palabra que llamó tu atención"},{n:"Significado",d:"Qué significa (contexto bíblico)"},{n:"3 versículos",d:"Los que más te iluminaron",f:true},{n:"Novedad",d:"¿Qué significado nuevo le da Cristo?"},{n:"Aplicación",d:"¿Cómo fortalece tu vida espiritual?"}]},
@@ -476,37 +517,100 @@ const PREGUNTAS_M = {
   5:["¿En qué personaje de la escena te ubicas tú? ¿Por qué?","¿Qué rasgos de Jesús te revela esta escena?","¿Qué te enseña Jesús directamente a ti a través de esta escena?","¿Cuál es la acción concreta que quieres llevar contigo esta semana?"],
 };
 
-const PLAN_GRUPOS = [
-  {mes:1,p:"El mundo de los orígenes",cl:"#1D9E75",bg:"#E1F5EE",ss:[1,2,3]},
-  {mes:1,p:"Los patriarcas",cl:"#8a6010",bg:"#f0e4c3",ss:[4,5,6,7,8,9,10,11,12]},
-  {mes:1,p:"Egipto y Éxodo",cl:"#A32D2D",bg:"#FCEBEB",ss:[13,14,15,16,17,18,19,20,21,22]},
-  {mes:1,p:"La peregrinación por el desierto",cl:"#BA7517",bg:"#FAEEDA",ss:[23,24,25,26,27,28,29,30,31]},
-  {mes:2,p:"La conquista y los jueces",cl:"#3B6D11",bg:"#EAF3DE",ss:[32,33,34,35,36,37,38,39,40,41,42]},
-  {mes:2,p:"La monarquía unida",cl:"#534AB7",bg:"#EEEDFE",ss:[43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59]},
-  {mes:3,p:"El reino dividido",cl:"#185FA5",bg:"#E6F1FB",ss:[60,61,62,63,64,65,66]},
-  {mes:3,p:"El exilio",cl:"#3a3830",bg:"#eceae4",ss:[67,68]},
-  {mes:3,p:"El retorno",cl:"#996b0a",bg:"#fef3d6",ss:[69,70,71,72,73]},
-  {mes:3,p:"La revuelta macabea",cl:"#993C1D",bg:"#FAECE7",ss:[74,75,76,77]},
-  {mes:3,p:"El cumplimiento mesiánico",cl:"#8a6010",bg:"#fdf6e3",ss:[78,79,80,81,82,83]},
-  {mes:3,p:"La Iglesia",cl:"#0F6E56",bg:"#E1F5EE",ss:[84,85,86,87,88,89,90]},
-];
-
 function getMetodo(n) {
   const s = SESIONES[n-1];
-  if (s.c.startsWith('Lc') || s.c.startsWith('Hch')) return 5;
+  if (s.p === 'El cumplimiento mesiánico' || s.p === 'La Iglesia') return 5;
+  if (s.p === 'Job: el misterio del sufrimiento') return 4; // temático encaja mejor con Job
   const ciclo = [1,1,2,3,4,2,1,1,3,4,2,1];
   return ciclo[(n-1) % 12];
 }
 
+// ===== CONTENIDO INTRODUCCIÓN =====
+const INTRO_CONTENT = `
+<div class="intro-block">
+  <h3>1. ¿Qué es el canon de la Escritura?</h3>
+  <p>"Canon" viene del griego <em>kanon</em>, "regla" o "medida". Es la lista oficial de libros que la Iglesia reconoce como inspirados por Dios. La Biblia católica tiene <strong>73 libros</strong>: 46 en el Antiguo Testamento y 27 en el Nuevo Testamento.</p>
+
+  <h3>2. Los concilios y la formación del canon</h3>
+  <p>El canon no llegó ya armado — fue discernido por la Iglesia a lo largo de varios siglos, bajo la guía del Espíritu Santo. Los Concilios de <strong>Hipona (393)</strong> y <strong>Cartago (397 y 419)</strong> confirmaron la lista de libros que ya se usaba en la liturgia. El Concilio de <strong>Trento (1546)</strong> lo definió como dogma de fe, frente a los reformadores protestantes que cuestionaban algunos libros.</p>
+
+  <h3>3. ¿Por qué la Biblia católica tiene más libros que la protestante?</h3>
+  <p>La Biblia católica conserva <strong>7 libros deuterocanónicos</strong> del Antiguo Testamento que estaban en la Septuaginta (la versión griega usada por los judíos de la diáspora y citada por los apóstoles): Tobías, Judit, 1 y 2 Macabeos, Sabiduría, Eclesiástico (Sirácide) y Baruc. Martín Lutero los retiró de su traducción en el siglo XVI, siguiendo el canon hebreo palestino más corto.</p>
+
+  <h3>4. Los géneros literarios de la Biblia</h3>
+  <p>La Biblia no es un solo tipo de libro — es una biblioteca de géneros distintos, y reconocerlos es clave para interpretar bien:</p>
+  <ul>
+    <li><strong>Histórico-narrativo:</strong> Génesis, Éxodo, Josué, Samuel, Reyes, Hechos</li>
+    <li><strong>Legislativo:</strong> Levítico, Deuteronomio</li>
+    <li><strong>Sapiencial / poético:</strong> Job, Salmos, Proverbios, Eclesiastés, Cantar de los Cantares</li>
+    <li><strong>Profético:</strong> Isaías, Jeremías, Ezequiel, los profetas menores</li>
+    <li><strong>Evangélico:</strong> Mateo, Marcos, Lucas, Juan</li>
+    <li><strong>Epistolar:</strong> las cartas de Pablo, Pedro, Juan, Santiago, Judas</li>
+    <li><strong>Apocalíptico:</strong> Daniel, Apocalipsis</li>
+  </ul>
+
+  <h3>5. ¿Por qué importa el género para interpretar?</h3>
+  <p>El Catecismo lo explica así: "Para descubrir la intención de los autores sagrados, es preciso tener en cuenta los géneros literarios usados" (CIC 110). No leemos un salmo poético igual que una ley del Levítico, ni una parábola igual que un relato histórico. Confundir el género lleva a malinterpretar el texto — por ejemplo, tomar literalmente una hipérbole de Jesús (Mt 5,30) o buscar precisión científica en Génesis 1, que es un himno teológico sobre el origen y el sentido de la creación, no un tratado de biología.</p>
+
+  <h3>6. Autor humano y autor divino</h3>
+  <p>La Escritura tiene una doble autoría: Dios es el autor principal, pero se sirvió de autores humanos reales, con su propia personalidad, época y estilo, para escribir todo y solo lo que Él quería (CIC 105-106). Por eso hay que considerar ambas cosas: qué quiso decir el autor humano en su contexto histórico, y qué quiere decirnos Dios a través de él, a la luz de toda la Escritura y de la Tradición viva de la Iglesia (Dei Verbum 12).</p>
+
+  <h3>7. La historia de la salvación: el hilo que une todo</h3>
+  <p>A pesar de tener 73 libros y muchos autores distintos a lo largo de más de mil años, la Biblia cuenta <strong>una sola historia</strong>: cómo Dios se revela progresivamente a su pueblo y lleva a cabo su plan de salvación, desde la creación hasta la Iglesia. Este plan de lectura sigue ese hilo cronológicamente, período por período, para ver "el cuadro completo" antes de profundizar en los detalles.</p>
+
+  <h3>8. Sobre Job y los evangelios en este plan</h3>
+  <p>Por sugerencia del sacerdote acompañante de este grupo, se añadió el <strong>libro de Job</strong> en su lugar tradicional dentro de la época patriarcal, y se ampliaron las sesiones de los Evangelios para leer <strong>Mateo, Marcos, Lucas y Juan armonizados</strong> —es decir, entretejidos en una sola cronología de la vida de Jesús— en vez de un solo evangelio.</p>
+</div>
+`;
+
+// ===== INTRODUCCIÓN A LOS LIBROS =====
+const LIBROS_INTRO = [
+  {libro:"Génesis", periodo:"El mundo de los orígenes / Los patriarcas", genero:"Histórico-narrativo",
+   intro:"El primer libro de la Biblia. Narra el origen del mundo, la caída del hombre, y la elección de una familia —la de Abrahán— a través de la cual Dios comenzará a reconstruir lo que el pecado rompió. Su nombre significa 'origen' o 'principio'."},
+  {libro:"Job", periodo:"Época patriarcal (situado entre los patriarcas)", genero:"Sapiencial / poético dramático",
+   intro:"Un hombre justo que sufre sin entender por qué. No es necesariamente un relato histórico literal sino una gran reflexión poética sobre el misterio del sufrimiento humano y la justicia de Dios. Termina no con una explicación, sino con un encuentro: Dios mismo le habla a Job."},
+  {libro:"Éxodo", periodo:"Egipto y Éxodo", genero:"Histórico-narrativo / legislativo",
+   intro:"La liberación de Israel de la esclavitud en Egipto y el nacimiento de Israel como pueblo de Dios a través de la alianza del Sinaí. Es la matriz de toda la espiritualidad bíblica de la liberación y la alianza."},
+  {libro:"Números", periodo:"La peregrinación por el desierto", genero:"Histórico-narrativo / legislativo",
+   intro:"Los cuarenta años de peregrinación por el desierto, marcados por las quejas del pueblo, las pruebas de la fe y la fidelidad de Dios a pesar de las infidelidades humanas."},
+  {libro:"Josué", periodo:"La conquista y los jueces", genero:"Histórico-narrativo",
+   intro:"La entrada y conquista de la Tierra Prometida bajo el liderazgo de Josué, sucesor de Moisés. Cumplimiento de la promesa hecha a los patriarcas."},
+  {libro:"Jueces", periodo:"La conquista y los jueces", genero:"Histórico-narrativo",
+   intro:"Un ciclo que se repite: el pueblo se aleja de Dios, sufre opresión, clama, y Dios levanta un 'juez' (líder carismático) para liberarlo. Muestra la necesidad de un rey... y la fidelidad de Dios incluso en el caos."},
+  {libro:"1-2 Samuel", periodo:"La monarquía unida", genero:"Histórico-narrativo",
+   intro:"El nacimiento de la monarquía en Israel: Samuel, Saúl y David. Es el corazón teológico de la promesa mesiánica: de la casa de David vendrá un rey eterno."},
+  {libro:"1 Reyes", periodo:"La monarquía unida / El reino dividido", genero:"Histórico-narrativo",
+   intro:"El reinado de Salomón y la construcción del Templo, seguido de la división del reino en Israel (norte) y Judá (sur) tras su muerte."},
+  {libro:"2 Reyes", periodo:"El reino dividido / El exilio", genero:"Histórico-narrativo",
+   intro:"La historia de los reyes de Israel y Judá hasta la caída de ambos reinos y el exilio en Babilonia. Un libro que muestra las consecuencias de alejarse de la alianza."},
+  {libro:"Esdras", periodo:"El retorno", genero:"Histórico-narrativo",
+   intro:"El regreso del exilio en Babilonia y la reconstrucción del Templo de Jerusalén bajo el liderazgo de Esdras."},
+  {libro:"Nehemías", periodo:"El retorno", genero:"Histórico-narrativo",
+   intro:"La reconstrucción de las murallas de Jerusalén y la renovación de la alianza del pueblo bajo Nehemías, gobernador judío."},
+  {libro:"1 Macabeos", periodo:"La revuelta macabea", genero:"Histórico-narrativo (deuterocanónico)",
+   intro:"La resistencia judía contra la helenización forzada del imperio seléucida y la purificación del Templo. Origen de la fiesta de Janucá."},
+  {libro:"Mateo", periodo:"El cumplimiento mesiánico", genero:"Evangelio",
+   intro:"Escrito pensando en un público judío, presenta a Jesús como el Mesías que cumple las Escrituras de Israel, el nuevo Moisés que da la Ley nueva en el Sermón del Monte."},
+  {libro:"Marcos", periodo:"El cumplimiento mesiánico", genero:"Evangelio",
+   intro:"El evangelio más breve y de ritmo más urgente. Presenta a Jesús en acción, revelando progresivamente que es el Hijo de Dios, culminando en la cruz."},
+  {libro:"Lucas", periodo:"El cumplimiento mesiánico", genero:"Evangelio",
+   intro:"Escrito por un médico griego, compañero de Pablo. Subraya la misericordia de Jesús hacia los pobres, las mujeres, los pecadores y los marginados."},
+  {libro:"Juan", periodo:"El cumplimiento mesiánico", genero:"Evangelio",
+   intro:"El evangelio más contemplativo y teológico. Presenta a Jesús como el Verbo eterno hecho carne, a través de signos y largos discursos que revelan su identidad divina."},
+  {libro:"Hechos de los Apóstoles", periodo:"La Iglesia", genero:"Histórico-narrativo",
+   intro:"La continuación del Evangelio de Lucas: cómo el Espíritu Santo impulsa a la Iglesia naciente desde Jerusalén hasta los confines del mundo conocido, a través de Pedro y sobre todo de Pablo."},
+];
+
+// ===== ESTADO =====
 let done = new Set();
-try { done = new Set(JSON.parse(localStorage.getItem('biblia_done_v3') || '[]')); } catch(e) {}
+try { done = new Set(JSON.parse(localStorage.getItem('biblia_done_v4') || '[]')); } catch(e) {}
 let guiaSesion = 1;
 let timerInterval = null, timerSecs = 0, timerRunning = false;
 
-function save() { try { localStorage.setItem('biblia_done_v3', JSON.stringify([...done])); } catch(e) {} }
+function save() { try { localStorage.setItem('biblia_done_v4', JSON.stringify([...done])); } catch(e) {} }
 
 function renderStats() {
-  const d = done.size, t = 90;
+  const d = done.size, t = TOTAL_SESIONES;
   document.getElementById('pn-done').textContent = d;
   document.getElementById('pn-pct').textContent = Math.round(d/t*100) + '%';
   document.getElementById('pn-left').textContent = t - d;
@@ -514,25 +618,19 @@ function renderStats() {
 }
 
 function renderTracker() {
-  let html = '', lastMes = null;
-  for (const g of PLAN_GRUPOS) {
-    if (g.mes !== lastMes) {
-      if (lastMes !== null) html += '</div>';
-      lastMes = g.mes;
-      const mesSes = PLAN_GRUPOS.filter(x => x.mes === g.mes).flatMap(x => x.ss);
-      const mesDone = mesSes.filter(n => done.has(n)).length;
-      html += `<div class="mes-section"><div class="mes-title"><span>Mes ${g.mes}</span><span class="mes-count">${mesDone} / ${mesSes.length}</span></div>`;
-    }
-    html += `<div class="grupo-title"><span style="color:${g.cl};">${g.p}</span></div><div class="sesiones-grid">`;
-    for (const n of g.ss) {
+  let html = '';
+  GRUPOS_TRACKER.forEach(g => {
+    const gDone = g.ns.filter(n => done.has(n)).length;
+    html += `<div class="grupo-title"><span style="color:${g.cl};">${g.p}</span><span style="font-size:11px;color:var(--ink-muted);text-transform:none;letter-spacing:0;">${gDone}/${g.ns.length}</span></div><div class="sesiones-grid">`;
+    g.ns.forEach(n => {
       const s = SESIONES[n-1], isDone = done.has(n);
-      html += `<div class="sesion-card${isDone?' done':''}" onclick="toggleSesion(${n})">
+      const sub = EVANGELIO_SUBTITULOS[n] ? `<div style="font-size:9.5px;color:var(--ink-muted);margin-top:2px;line-height:1.2;">${EVANGELIO_SUBTITULOS[n]}</div>` : '';
+      html += `<div class="sesion-card${isDone?' done':''}" onclick="toggleSesion(${n})" style="${EVANGELIO_SUBTITULOS[n] ? 'grid-column: span 2;' : ''}">
         <div class="sesion-header"><span class="sesion-num">#${n}</span>${isDone?'<span class="sesion-check">✓</span>':''}</div>
-        <div class="sesion-cita">${s.c}</div></div>`;
-    }
+        <div class="sesion-cita">${s.c}</div>${sub}</div>`;
+    });
     html += `</div>`;
-  }
-  html += '</div>';
+  });
   document.getElementById('tracker-content').innerHTML = html;
 }
 
@@ -549,22 +647,42 @@ function renderPeriodos() {
   ).join('');
 }
 
+function renderIntro() {
+  document.getElementById('intro-content-container').innerHTML = INTRO_CONTENT;
+}
+
+function renderReferencia() {
+  document.getElementById('referencia-grid').innerHTML = LIBROS_INTRO.map(l => `
+    <div class="libro-card">
+      <div class="libro-card-top">
+        <div class="libro-nombre">${l.libro}</div>
+        <span class="libro-genero">${l.genero}</span>
+      </div>
+      <div class="libro-periodo">${l.periodo}</div>
+      <div class="libro-desc">${l.intro}</div>
+    </div>
+  `).join('');
+}
+
 function cargarGuia(n) {
   guiaSesion = n;
   const s = SESIONES[n-1], m = getMetodo(n), metodo = METODOS_DATA[m];
   document.getElementById('guia-select').value = n;
   document.getElementById('btn-prev').disabled = n <= 1;
-  document.getElementById('btn-next').disabled = n >= 90;
+  document.getElementById('btn-next').disabled = n >= TOTAL_SESIONES;
   document.getElementById('guia-badge').textContent = s.p;
   document.getElementById('guia-badge').style.background = s.bg;
   document.getElementById('guia-badge').style.color = s.cl;
+
+  const sub = EVANGELIO_SUBTITULOS[n] ? `<div style="font-size:13px;color:${s.cl};opacity:0.85;margin-top:2px;font-style:italic;">${EVANGELIO_SUBTITULOS[n]}</div>` : '';
 
   const hdr = document.getElementById('guia-header-block');
   hdr.style.background = s.bg; hdr.style.borderColor = s.cl + '33';
   hdr.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:4px;">
     <div>
-      <div class="guia-sesion-num" style="color:${s.cl};">Sesión ${n} de 90</div>
+      <div class="guia-sesion-num" style="color:${s.cl};">Sesión ${n} de ${TOTAL_SESIONES}</div>
       <div class="guia-cita" style="color:${s.cl};">${s.c}</div>
+      ${sub}
       <div class="guia-periodo-name" style="color:${s.cl};">${s.p}</div>
     </div>
     <span class="metodo-tag" style="background:${metodo.bg};color:${metodo.cl};">${metodo.nombre}</span>
@@ -572,10 +690,10 @@ function cargarGuia(n) {
 
   const PASOS = [
     {t:"Apertura y oración",ti:"5–10 min",d:"Comiencen con un momento de silencio para hacer presente a Dios. La facilitadora hace una oración breve para pedir la iluminación del Espíritu Santo.",qs:[{tipo:"Oración sugerida",texto:"Señor, abre nuestros oídos y nuestro corazón. Que tu Palabra no regrese vacía. Ven, Espíritu Santo."}]},
-    {t:"Contexto de la sesión",ti:"5 min",d:"La facilitadora da una breve introducción sobre el período histórico. No hace falta saber mucho — con los datos del plan es suficiente.",qs:[{tipo:"Para presentar",texto:`Período: ${s.p}. Hoy leemos: ${s.c}.`}]},
-    {t:"Lectura en voz alta",ti:"10–15 min",d:"Una integrante lee los capítulos del día, o se reparten entre todas. Usen cualquier Biblia católica. Después de la lectura, un minuto de silencio.",qs:[{tipo:"Nota",texto:"Pueden leer solo los capítulos clave si el texto es muy largo. Lo importante es escuchar juntas la Palabra."}]},
+    {t:"Contexto de la sesión",ti:"5 min",d:"La facilitadora da una breve introducción sobre el período histórico. No hace falta saber mucho — con los datos del plan es suficiente.",qs:[{tipo:"Para presentar",texto:`Período: ${s.p}. Hoy leemos: ${s.c}.${EVANGELIO_SUBTITULOS[n] ? ' Tema: ' + EVANGELIO_SUBTITULOS[n] + '.' : ''}`}]},
+    {t:"Lectura en voz alta",ti:"10–15 min",d: s.p === 'El cumplimiento mesiánico' ? "Esta sesión combina varios evangelios sobre el mismo episodio de la vida de Jesús. Lean los pasajes principales en voz alta; no hace falta leer cada paralelo completo, sino notar qué añade cada evangelista." : "Una integrante lee los capítulos del día, o se reparten entre todas. Usen cualquier Biblia católica. Después de la lectura, un minuto de silencio.",qs:[{tipo:"Nota",texto:"Pueden leer solo los capítulos clave si el texto es muy largo. Lo importante es escuchar juntas la Palabra."}]},
     {t:"Compartir con el método de hoy",ti:"25–30 min",d:`Cada una comparte lo que trabajó durante la semana con el método: ${metodo.nombre}. La facilitadora guía con estas preguntas:`,qs:PREGUNTAS_M[m].map(q=>({tipo:"Pregunta",texto:q}))},
-    {t:"Cierre y compromiso",ti:"10 min",d:"Cada una comparte en una frase: ¿qué me llevo de este encuentro? Y anuncia su compromiso concreto para la semana.",qs:[{tipo:"Para cerrar",texto:"¿Qué acción concreta te llevas esta semana de esta lectura?"},{tipo:"Próxima sesión",texto:n<90?`La semana que viene: ${SESIONES[n].c} — ${SESIONES[n].p}.`:"¡Último encuentro del plan!"}]},
+    {t:"Cierre y compromiso",ti:"10 min",d:"Cada una comparte en una frase: ¿qué me llevo de este encuentro? Y anuncia su compromiso concreto para la semana.",qs:[{tipo:"Para cerrar",texto:"¿Qué acción concreta te llevas esta semana de esta lectura?"},{tipo:"Próxima sesión",texto:n<TOTAL_SESIONES?`La semana que viene: ${SESIONES[n].c} — ${SESIONES[n].p}.`:"¡Último encuentro del plan!"}]},
     {t:"Oración final",ti:"5 min",d:"Cierren en oración espontánea o con un Padre Nuestro. Pueden añadir una invocación al Espíritu Santo o a la Virgen.",qs:[{tipo:"Sugerencia",texto:"Recen por las intenciones de cada una. Agradezcan lo compartido. Pidan fidelidad al plan."}]},
   ];
 
@@ -613,7 +731,7 @@ function togglePaso(i) {
   t.textContent = open ? '›' : '‹';
 }
 function markPaso(i) { document.getElementById('gp-'+i).classList.add('pdone'); }
-function cambiarGuia(d) { const n = guiaSesion+d; if(n>=1&&n<=90){cargarGuia(n);window.scrollTo(0,0);} }
+function cambiarGuia(d) { const n = guiaSesion+d; if(n>=1&&n<=TOTAL_SESIONES){cargarGuia(n);window.scrollTo(0,0);} }
 
 function showPage(id, btn) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -621,6 +739,7 @@ function showPage(id, btn) {
   document.getElementById('page-'+id).classList.add('active');
   btn.classList.add('active');
   document.getElementById('timer-bar').classList.toggle('hidden', id !== 'guia');
+  window.scrollTo(0,0);
 }
 
 function toggleMetodo(hdr) {
@@ -634,7 +753,7 @@ function toggleTimer() {
   if (timerRunning) {
     clearInterval(timerInterval); timerRunning = false;
     document.getElementById('timer-btn').textContent = 'Reanudar';
-    document.getElementById('timer-display').classList.remove('running');
+    document.getElementById('timer-display').style.color = 'var(--ink)';
   } else {
     timerInterval = setInterval(() => {
       timerSecs++;
@@ -643,23 +762,23 @@ function toggleTimer() {
     },1000);
     timerRunning = true;
     document.getElementById('timer-btn').textContent = 'Pausar';
-    document.getElementById('timer-display').classList.add('running');
+    document.getElementById('timer-display').style.color = 'var(--gold)';
   }
 }
 function resetTimer() {
   clearInterval(timerInterval); timerRunning = false; timerSecs = 0;
   document.getElementById('timer-display').textContent = '0:00';
   document.getElementById('timer-btn').textContent = 'Iniciar';
-  document.getElementById('timer-display').classList.remove('running');
+  document.getElementById('timer-display').style.color = 'var(--ink)';
 }
 
 // Poblar select guía
 const sel = document.getElementById('guia-select');
-SESIONES.forEach(s => { const o = document.createElement('option'); o.value=s.n; o.textContent=s.n+'. '+s.c+' — '+s.p; sel.appendChild(o); });
+SESIONES.forEach(s => { const o = document.createElement('option'); o.value=s.n; o.textContent=s.n+'. '+s.c+(EVANGELIO_SUBTITULOS[s.n] ? ' — '+EVANGELIO_SUBTITULOS[s.n] : ' — '+s.p); sel.appendChild(o); });
 
 // Init
-renderStats(); renderTracker(); renderPeriodos();
-try { const g = parseInt(localStorage.getItem('biblia_guia_sesion')||'1'); cargarGuia(g>=1&&g<=90?g:1); } catch(e){cargarGuia(1);}
+renderStats(); renderTracker(); renderPeriodos(); renderIntro(); renderReferencia();
+try { const g = parseInt(localStorage.getItem('biblia_guia_sesion')||'1'); cargarGuia(g>=1&&g<=TOTAL_SESIONES?g:1); } catch(e){cargarGuia(1);}
 </script>
 </body>
 </html>
